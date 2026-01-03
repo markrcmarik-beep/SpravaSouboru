@@ -1,4 +1,4 @@
-# ver: 2025-11-18
+# ver: 2026-01-03
 module SpravaSouboru
 
 # Import implementací
@@ -14,6 +14,6 @@ include("copyfile_preserve_times.jl")
 
 # Export funkcí
 export sprdsheet2velkst, sprsheetRef, sprsheet2tabl, sync_folders, 
-menugui, menutext, zalohovat, copyfile_preserve_times
+menugui, menutext, zalohovat
 
 end # module SpravaSouboru

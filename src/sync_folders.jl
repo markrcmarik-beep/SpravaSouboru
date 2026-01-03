@@ -6,7 +6,7 @@
 # Pokud je povoleno, odstraní soubory, které jsou jen v cílové složce.
 # Lze volit kontrolu obsahu souborů, nebo jen velikosti a času.
 # Lze volit režim "suchého běhu", kdy se akce pouze vypíšou, ale neprovedou.
-# ver: 2025-11-19
+# ver: 2026-01-03
 ## Funkce: sync_folders()
 #
 ## Vzor:
@@ -24,7 +24,8 @@
 ## Použité funkce:
 #
 ## Příklad:
-# sync_folders("cesta/k/zdroji", "cesta/k/ciliu"; check_content=true, delete_extra=true, dry_run=false)
+# sync_folders("cesta/k/zdroji", "cesta/k/cili"; check_content=true, 
+#   delete_extra=true, dry_run=false)
 ###############################################################
 ## Použité proměnné vnitřní:
 # files_src : slovník souborů ve zdrojové složce s metadaty
@@ -52,7 +53,6 @@ function sync_folders(src::String, dst::String;
                       check_content::Bool=false,
                       delete_extra::Bool=true,
                       dry_run::Bool=true)
-
     ###########################################################################
     # Pomocná funkce – sběr všech souborů a jejich atributů
     ###########################################################################
@@ -63,30 +63,24 @@ function sync_folders(src::String, dst::String;
                 full = joinpath(path, f)
                 rel  = Base.Filesystem.relpath(full, root)
                 s    = stat(full)
-
                 # stat().mtime je v některých OS číslo, v jiných DateTime
                 mtime = s.mtime isa DateTime ? s.mtime : unix2datetime(s.mtime)
-
                 files[rel] = (s.size, mtime, full)
             end
         end
         return files
     end
-
     ###########################################################################
     # Načtení struktury obou složek
     ###########################################################################
     files_src = collect_files(src)
     files_dst = collect_files(dst)
-
     actions = String[]
-
     ###########################################################################
     # Vyhledání nových nebo změněných souborů
     ###########################################################################
     for (rel, (size_s, time_s, path_s)) in files_src
         dest_path = joinpath(dst, rel)
-
         if !haskey(files_dst, rel)
             push!(actions, "Kopírovat nový soubor: $rel")
             if !dry_run
@@ -96,7 +90,6 @@ function sync_folders(src::String, dst::String;
         else
             size_d, time_d, path_d = files_dst[rel]
             needs_copy = false
-
             if check_content
                 # Kontrola obsahu – pomalé, ale přesné
                 if read(path_s) != read(path_d)
@@ -108,16 +101,14 @@ function sync_folders(src::String, dst::String;
                     needs_copy = true
                 end
             end
-
             if needs_copy
                 push!(actions, "Aktualizovat soubor: $rel")
                 if !dry_run
-                    copyfile_preserve_times(path_s, dest_path)
+                    SpravaSouboru.copyfile_preserve_times(path_s, dest_path)
                 end
             end
         end
     end
-
     ###########################################################################
     # Mazání souborů, které jsou pouze v cílové složce
     ###########################################################################
@@ -130,14 +121,12 @@ function sync_folders(src::String, dst::String;
             end
         end
     end
-
     ###########################################################################
     # Mazání prázdných a přebytečných složek
     ###########################################################################
     if delete_extra
         src_dirs = Set{String}(relpath(d, src) for (d,_,_) in walkdir(src))
         dst_dirs = Set{String}(relpath(d, dst) for (d,_,_) in walkdir(dst))
-
         # Složky mažeme od nejhlubší
         for rel in sort(collect(setdiff(dst_dirs, src_dirs)), rev=true)
             dpath = joinpath(dst, rel)
@@ -149,7 +138,6 @@ function sync_folders(src::String, dst::String;
             end
         end
     end
-
     ###########################################################################
     # Výpis
     ###########################################################################
