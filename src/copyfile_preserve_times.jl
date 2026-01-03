@@ -37,16 +37,13 @@ function copyfile_preserve_times(src::AbstractString, dst::AbstractString)
     if !isfile(src)
         throw(ArgumentError("Zdroj není soubor: $src"))
     end
-
     # Ujistíme se, že cílový adresář existuje
     mkpath(isdir(dst) ? dst : dirname(dst))
-
     ###########################################################################
     # 1) Kopie souboru (bez ohledu na OS)
     ###########################################################################
     # Base.cp kopíruje obsah, nikoli metadata – ta nastavíme po kopii.
     cp(src, dst; force=true)
-
     ###########################################################################
     # 2) Obnovení časových atributů podle OS
     ###########################################################################
@@ -63,7 +60,6 @@ function copyfile_preserve_times(src::AbstractString, dst::AbstractString)
         \$d.LastAccessTime    = \$s.LastAccessTime;
         """
         run(`powershell -NoProfile -Command $ps_cmd`)
-
     elseif Sys.isunix()
         #######################################################################
         # LINUX / macOS — nejlepší je "cp --preserve=timestamps" nebo "touch -r"
