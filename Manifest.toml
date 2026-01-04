@@ -2,7 +2,7 @@
 
 julia_version = "1.12.3"
 manifest_format = "2.0"
-project_hash = "e7ab9613f8ccb36132339552e2ede17f8a9453b8"
+project_hash = "52a81a5d32142d841a5d5988883814b383f1f1b5"
 
 [[deps.ATK_jll]]
 deps = ["Artifacts", "Glib_jll", "JLLWrappers", "Libdl"]
@@ -681,7 +681,7 @@ version = "1.2.2"
 deps = ["Dates", "FileIO", "FilePathsBase", "Gtk", "JLD2", "OdsIO", "Revise", "Tables", "XLSX", "ZipFile"]
 path = "."
 uuid = "bacb9340-e1dc-42c9-a0b3-58db5d1f30f5"
-version = "0.1.4"
+version = "0.1.5"
 
 [[deps.Statistics]]
 deps = ["LinearAlgebra"]
