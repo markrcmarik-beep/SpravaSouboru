@@ -1,0 +1,38 @@
+# ver: 2026-01-07
+# --- Julia specifické soubory ---
+*.ji
+*.cov
+*.mem
+*.tmp
+*.jld2
+Manifest.toml
+
+# Složka pro artefakty (pokud používáte Pkg.Artifacts)
+artifacts/
+
+# --- VS Code nastavení ---
+# Často je lepší nesdílet své osobní nastavení editoru (barvičky, cesty)
+.vscode/
+
+# --- Výstupy výpočtů a velká data ---
+# Git není stavěný na velké binární soubory nebo tisíce CSV
+# Zde ignorujeme složky, kam se generují grafy nebo ukládají data
+data/
+outputs/
+plots/
+*.csv
+*.png
+*.pdf
+
+deps/build/
+*.log
+
+# Poznámka: Pokud chcete nějaký specifický PDF výkres verzovat, 
+# můžete ho vynutit příkazem 'git add -f nazev.pdf', 
+# i když je zde ignorován.
+
+# --- Systémové soubory Windows ---
+Thumbs.db
+Desktop.ini
+# OS
+.DS_Store
