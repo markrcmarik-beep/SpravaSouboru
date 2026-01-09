@@ -1,4 +1,4 @@
-# ver: 2026-01-03
+# ver: 2026-01-09
 module SpravaSouboru
 
 # Import implementací
@@ -6,7 +6,7 @@ include("sprdsheet2velkst.jl")
 include("sprsheetRef.jl")
 include("sprsheet2tabl.jl")
 include("sync_folders.jl")
-include("menugui.jl")
+#include("menugui.jl")
 include("menutext.jl")
 include("zalohovat.jl")
 include("copyfile_preserve_times.jl")
