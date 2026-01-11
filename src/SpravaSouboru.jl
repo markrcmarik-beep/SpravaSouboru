@@ -1,4 +1,16 @@
-# ver: 2026-01-09
+## Balíček Julia v1.12
+###############################################################
+## Popis balíčku
+#
+# ver: 2026-01-11
+## Cesta uvnitř balíčku:
+# SpravaSouboru/src/SpravaSouboru.jl
+#
+## Použité balíčky:
+#
+###############################################################
+## Použité proměnné vnitřní:
+#
 module SpravaSouboru
 
 # Import implementací
