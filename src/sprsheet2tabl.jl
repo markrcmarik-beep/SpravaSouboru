@@ -35,7 +35,7 @@
 #
 ###############################################################
 
-using XLSX, OdsIO, JLD2, Dates, FileIO
+using XLSX, OdsIO, JLD2, Dates
 
 function sprsheet2tabl(cesta01::String, soubory::Vector{String}, list::String, rozsahy::Vector{String})
 

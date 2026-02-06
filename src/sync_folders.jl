@@ -31,7 +31,7 @@
 # files_src : slovník souborů ve zdrojové složce s metadaty
 # files_dst : slovník souborů v cílové složce s metadaty
 # actions : seznam plánovaných akcí během synchronizace
-using Dates, FilePathsBase
+using Dates
 
 """
     sync_folders(src::String, dst::String;

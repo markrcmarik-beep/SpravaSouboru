@@ -2,7 +2,7 @@
 ###############################################################
 ## Popis balíčku
 #
-# ver: 2026-01-11
+# ver: 2026-02-06
 ## Cesta uvnitř balíčku:
 # SpravaSouboru/src/SpravaSouboru.jl
 #
@@ -18,8 +18,8 @@ include("sprdsheet2velkst.jl")
 include("sprsheetRef.jl")
 include("sprsheet2tabl.jl")
 include("sync_folders.jl")
-include("menugui.jl")
-include("menutext.jl")
+include("menu/menugui.jl")
+include("menu/menutext.jl")
 include("zalohovat.jl")
 include("copyfile_preserve_times.jl")
 
