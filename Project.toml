@@ -1,6 +1,6 @@
 name = "SpravaSouboru"
 uuid = "bacb9340-e1dc-42c9-a0b3-58db5d1f30f5"
-version = "0.1.7"
+version = "0.1.8"
 authors = ["Martin"]
 
 [deps]

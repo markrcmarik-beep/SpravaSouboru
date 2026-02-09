@@ -2,7 +2,7 @@
 ###############################################################
 ## Popis balíčku
 #
-# ver: 2026-02-06
+# ver: 2026-02-09
 ## Cesta uvnitř balíčku:
 # SpravaSouboru/src/SpravaSouboru.jl
 #

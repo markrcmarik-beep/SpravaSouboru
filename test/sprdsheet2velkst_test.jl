@@ -1,26 +1,39 @@
-# ver: 2025-11-02
+# ver: 2026-02-09
+using Test
 using SpravaSouboru
-#include(joinpath(@__DIR__, "sprdsheet2velkst.jl"))
 
 cesta1 = joinpath(@__DIR__, "sprdsheet2velkst_test/sprdsheet2velkst_test.ods")
 cesta2 = joinpath(@__DIR__, "sprdsheet2velkst_test/sprdsheet2velkst_2_test.ods")
 cesta3 = joinpath(@__DIR__, "sprdsheet2velkst_test/sprdsheet2velkst_3_test.xlsx")
-list11  = "List1"
-list12  = "List2"
-list21  = "material"
-list22  = "material2"
-list31  = "material"
-list32  = "material2"
 
-A11=sprdsheet2velkst(cesta1, list11)
-println(A11)
-A12=sprdsheet2velkst(cesta1, list12)
-println(A12)
-A21=sprdsheet2velkst(cesta2, list21)
-println(A21)
-A22=sprdsheet2velkst(cesta2, list22)
-println(A22)
-A31=sprdsheet2velkst(cesta3, list31)
-println(A31)
-A32=sprdsheet2velkst(cesta3, list32)
-println(A32)
+@testset "sprdsheet2velkst" begin
+    @test sprdsheet2velkst(cesta1, "List1") == "A2:AQG1590"
+    @test sprdsheet2velkst(cesta1, "List2") == "A4:BD739"
+
+    @test sprdsheet2velkst(cesta2, "material") == "A1:T91"
+    @test sprdsheet2velkst(cesta2, "material2") == "A1:M37"
+
+    @test sprdsheet2velkst(cesta3, "material") == "A1:T90"
+    @test sprdsheet2velkst(cesta3, "material2") == "A1:L36"
+
+    @test sprdsheet2velkst(cesta1, "List1"; druh="první") == "A2"
+    @test sprdsheet2velkst(cesta1, "List1"; druh="poslední") == "AQG1590"
+    @test sprdsheet2velkst(cesta1, "List1"; druh="první písmeno") == "A"
+    @test sprdsheet2velkst(cesta1, "List1"; druh="první číslo") == "2"
+    @test sprdsheet2velkst(cesta1, "List1"; druh="poslední písmeno") == "AQG"
+    @test sprdsheet2velkst(cesta1, "List1"; druh="poslední číslo") == "1590"
+
+    @test sprdsheet2velkst(cesta2, "material2"; druh="první") == "A1"
+    @test sprdsheet2velkst(cesta2, "material2"; druh="poslední") == "M37"
+    @test sprdsheet2velkst(cesta2, "material2"; druh="první písmeno") == "A"
+    @test sprdsheet2velkst(cesta2, "material2"; druh="první číslo") == "1"
+    @test sprdsheet2velkst(cesta2, "material2"; druh="poslední písmeno") == "M"
+    @test sprdsheet2velkst(cesta2, "material2"; druh="poslední číslo") == "37"
+
+    @test sprdsheet2velkst(cesta3, "material2"; druh="první") == "A1"
+    @test sprdsheet2velkst(cesta3, "material2"; druh="poslední") == "L36"
+    @test sprdsheet2velkst(cesta3, "material2"; druh="první písmeno") == "A"
+    @test sprdsheet2velkst(cesta3, "material2"; druh="první číslo") == "1"
+    @test sprdsheet2velkst(cesta3, "material2"; druh="poslední písmeno") == "L"
+    @test sprdsheet2velkst(cesta3, "material2"; druh="poslední číslo") == "36"
+end
