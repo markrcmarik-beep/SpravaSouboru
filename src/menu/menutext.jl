@@ -61,8 +61,8 @@ function menutext(
         print("\nZadej číslo volby: ")
         flush(stdout)
 
-        try
-            input = readline()
+        input = try
+            readline()
         catch e
             if e isa InterruptException
                 println("\n$(red)❌ Přerušeno uživatelem.$(reset)")
