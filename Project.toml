@@ -1,11 +1,11 @@
 name = "SpravaSouboru"
 uuid = "bacb9340-e1dc-42c9-a0b3-58db5d1f30f5"
-version = "0.1.10"
+version = "0.1.11"
 authors = ["Martin"]
 
 [deps]
 Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
-Gtk = "4c0ca9eb-093a-5379-98c5-f87ac0bbbf44"
+Gtk4 = "9db2cae5-386f-4011-9d63-a5602296539b"
 JLD2 = "033835bb-8acc-5ee8-8aae-3f567f8a3819"
 OdsIO = "56b0d19f-0a74-5872-92bc-f48f9c5431d4"
 Tables = "bd369af6-aec1-5ad0-b16a-f7cc5008161c"
@@ -22,7 +22,7 @@ test = ["Test"]
 julia = "1.12"
 
 Dates = "1"
-Gtk = "1"
+Gtk4 = "0.7.12"
 JLD2 = "0"
 OdsIO = "0"
 Tables = "1"
