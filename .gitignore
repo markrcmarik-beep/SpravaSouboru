@@ -1,4 +1,4 @@
-# ver: 2026-01-07
+# ver: 2026-07-25
 # --- Julia specifické soubory ---
 *.ji
 *.cov
@@ -9,6 +9,9 @@ Manifest.toml
 
 # Složka pro artefakty (pokud používáte Pkg.Artifacts)
 artifacts/
+
+# Lokální prostředí vytvořené CondaPkg/OdsIO
+.CondaPkg/
 
 # --- VS Code nastavení ---
 # Často je lepší nesdílet své osobní nastavení editoru (barvičky, cesty)
