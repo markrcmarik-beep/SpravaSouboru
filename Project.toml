@@ -22,7 +22,7 @@ test = ["Test"]
 julia = "1.12"
 
 Dates = "1"
-Gtk4 = "0.7.12"
+Gtk4 = "0"
 JLD2 = "0"
 OdsIO = "0"
 Tables = "1"
