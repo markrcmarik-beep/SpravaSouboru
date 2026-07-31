@@ -1,47 +1,23 @@
-## Funkce Julia
-###############################################################
-## Popis funkce:
-# Synchronizuje nebo zálohuje složku podle příkazu `zpu`.
-# ver: 2025-11-20
+# ver: 2026-07-31
 ## Funkce: []=zalohovat()
+## Autor: Martin
 #
-## Vzor:
-## []=zalohovat(source::String, destination::String, zpu::String)
-## Vstupní proměnné:
-# source - Cesta ke zdrojové složce. [string]
-# destination - Cesta k cílové složce. [string]
-# zpu - Režim operace: [string]
-#     - "zalohovat old" - kompletní smazání cíle a nové kopírování
-#     - "zalohovat" - inteligentní synchronizace pomocí sync_folders()
-#     - "zipnout" - vytvoření zip archivu složky v cíli
-#     - "obnovit" - obnova složky (kopírování opačným směrem)
-## Výstupní proměnné:
-#
+## Cesta uvnitř balíčku:
+# StrojniSoucasti/src/profily/profily.jl
 ## Použité balíčky
 # Dates, ZipFile
 ## Použité funkce:
 #
-## Příklad:
-# >> zalohovat("C:/data/documents", "D:/backups", "zalohovat old")
-# >> zalohovat("C:/data/documents", "D:/backups", "zalohovat")
-# >> zalohovat("/home/user/docs", "/mnt/backup", "zipnout")
-# >> zalohovat("D:/backups/documents", "C:/data/documents", "obnovit")
-
 ## Použité proměnné vnitřní:
 #
 using Dates, ZipFile
-
+# načtení nápovědy z externího souboru
+const _zalohovat_NAPOVEDA = read(
+    joinpath(@__DIR__, "..", "docs", "src", "zalohovat.md"),
+    String,
+) 
 """
-    zalohovat(source::String, destination::String, zpu::String)
-
-Synchronizuje nebo zálohuje složku podle příkazu `zpu`.
-
-Dostupné režimy:
-- `"zalohovat old"` - kompletní smazání cíle a nové kopírování
-- `"zalohovat"` - inteligentní synchronizace pomocí sync_folders()
-- `"zipnout"` - vytvoření zip archivu složky v cíli
-- `"obnovit"` - obnova složky (kopírování opačným směrem)
-
+$_zalohovat_NAPOVEDA
 """
 function zalohovat(source::String, destination::String, zpu::String)
 
