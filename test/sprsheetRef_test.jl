@@ -2,6 +2,10 @@
 using Test
 using SpravaSouboru
 
+@testset "Kontrola existence souboru" begin
+    # Ověříme, že soubor na dané cestě existuje a je to soubor
+    @test isfile(joinpath(dirname(@__DIR__), "src", "sprsheetRef.jl"))
+end
 @testset "sprsheetRef" begin
 # Základní převod [row, col] -> "AB3"
 @test sprsheetRef([1, 1]) == "A1"
@@ -21,3 +25,5 @@ using SpravaSouboru
 @test_throws ErrorException sprsheetRef("AB")         # chybí řádek
 @test_throws ErrorException sprsheetRef("12")         # chybí sloupec
 end
+
+nothing

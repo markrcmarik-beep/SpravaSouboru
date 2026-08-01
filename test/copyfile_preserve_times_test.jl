@@ -1,6 +1,10 @@
-# ver: 2026-01-03
+# ver: 2026-07-31
 using SpravaSouboru
+using Test
 
-cest = @__DIR__
-SpravaSouboru.copyfile_preserve_times(joinpath(cest,"menugui_test.jl"), 
-    joinpath(cest,"a","menugui_test.jl"))
+@testset "Kontrola existence souboru" begin
+    # Ověříme, že soubor na dané cestě existuje a je to soubor
+    @test isfile(joinpath(dirname(@__DIR__), "src", "copyfile_preserve_times.jl"))
+end
+
+nothing

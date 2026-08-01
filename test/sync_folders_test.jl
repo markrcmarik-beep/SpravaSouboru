@@ -14,3 +14,5 @@ sync_folders(
     delete_extra=true,            # maže soubory navíc v cíli
     dry_run=false                  # jen vypíše akce, nic nevykoná
 )
+
+nothing

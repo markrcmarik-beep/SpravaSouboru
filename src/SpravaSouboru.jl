@@ -2,7 +2,7 @@
 ###############################################################
 ## Popis balíčku
 #
-# ver: 2026-07-31
+# ver: 2026-08-01
 ## Cesta uvnitř balíčku:
 # SpravaSouboru/src/SpravaSouboru.jl
 #
@@ -18,8 +18,8 @@ module SpravaSouboru
 include("menu/menuokno.jl")
 include("menu/menutext.jl")
 
-include("sprdsheet2velkst.jl")
-include("sprsheet2tabl.jl")
+include("sprsheet2tabl/sprsheet2tabl.jl")
+include("sprsheet2velkst/sprsheet2velkst.jl")
 include("sprsheetRef.jl")
 include("sync_folders.jl")
 include("zalohovat.jl")
@@ -31,7 +31,7 @@ export
 # menu
 menuokno, menutext,
 # výchozí src
-sprdsheet2velkst, sprsheet2tabl, sprsheetRef, sync_folders, 
+sprsheet2tabl, sprsheet2velkst, sprsheetRef, sync_folders, 
  zalohovat
 
 end # module SpravaSouboru
