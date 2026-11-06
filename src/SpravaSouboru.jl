@@ -1,8 +1,8 @@
-## Balíček Julia v1.12
+## Balíček Julia v1.13
 ###############################################################
 ## Popis balíčku
 #
-# ver: 2026-08-01
+# ver: 2026-11-03
 ## Cesta uvnitř balíčku:
 # SpravaSouboru/src/SpravaSouboru.jl
 #
@@ -11,6 +11,9 @@
 ###############################################################
 ## Použité proměnné vnitřní:
 #
+"""
+$(read(joinpath(@__DIR__, "..", "docs", "src", "SpravaSouboru.md"), String))
+"""
 module SpravaSouboru
 
 # Import implementací
